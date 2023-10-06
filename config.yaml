@@ -1,0 +1,23 @@
+log:
+  level: debug
+  disable_sentry: true
+
+db:
+  url: db_url
+
+listener:
+  addr: :8000
+
+jwt:
+  secret_key: <JWT_SECRET_KEY_HEX>
+  expiration_time: 24h
+
+db_cleaner:
+  period: 24h
+
+cop:
+  disabled: true
+  endpoint: "http://..."
+  upstream: "http://..."
+  service_name: verify-proxy
+  service_port: 80

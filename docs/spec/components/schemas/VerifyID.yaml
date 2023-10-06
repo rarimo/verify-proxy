@@ -1,0 +1,23 @@
+allOf:
+  - $ref: '#/components/schemas/VerifyIDKey'
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - jwt
+          - verification_id
+        properties:
+          verification_id:
+            type: string
+            format: string
+            description: Request id
+            example: ddc4b83f-7403-4fb7-abb8-2513b4be6675
+          jwt:
+            type: string
+            format: string
+            description: JWT
+            example: >-
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imh5a2FrZGVsYUBnbWFpbC5jb20iLCJldGhBZGRyZXNzIjoiMHhkQzIzMDMzMkJkNjAyRUM0RTI4NkQyQTU5ODc4QTlERjUyYUI2MmVmIiwiZXhwIjoxNjgxMTQ3MTA3LCJ1c2VySUQiOiI4YWQ1ZGZiOC0wNmVmLTQ1NGItOTg5Ny0xNGE5N2QxNGM1MWYifQ.NzOEbzgle--20RvfC5kB9RqmZTJHa-x6nkP6KkS19aw

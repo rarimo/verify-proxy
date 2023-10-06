@@ -1,0 +1,38 @@
+configVersion: 1
+project: "backend"
+---
+image: builder # Build image name.
+from: golang:1.19 # Base image.
+docker:
+  WORKDIR: /go/src/gitlab.com/rarimo/rarimoid/verify-proxy
+git: # Section with directives for adding source files from a git repository.
+  - add: / # The source path in the repository.
+    to: /go/src/gitlab.com/rarimo/rarimoid/verify-proxy # The destination path in the image.
+    stageDependencies: # Configuring rebuild triggers when specific files in the repository change.
+      install:
+        - go.mod
+        - go.sum
+      setup: # For the Setup stage.
+        - "**/*"
+shell: # Shell build instructions.
+  setup: # For the Setup stage.
+    - cd /go/src/gitlab.com/rarimo/rarimoid/verify-proxy
+    - go build -o /usr/local/bin/verify-proxy /go/src/gitlab.com/rarimo/rarimoid/verify-proxy
+
+---
+image: service # The name of the built image.
+from: alpine:3.18.2 # The base image.
+docker:
+  ENTRYPOINT: verify-proxy
+shell: # Shell build instructions.
+  setup: # For the Setup stage.
+    - apk add --no-cache musl libstdc++ gcompat libgomp ca-certificates
+import:
+  - image: builder
+    add: /usr/local/bin/verify-proxy
+    to: /usr/local/bin/verify-proxy
+    after: setup
+  - image: builder
+    add: /go/pkg/mod/github.com/iden3/wasmer-go@v0.0.1
+    to: /go/pkg/mod/github.com/iden3/wasmer-go@v0.0.1
+    after: setup

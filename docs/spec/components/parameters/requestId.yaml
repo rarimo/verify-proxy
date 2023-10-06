@@ -1,0 +1,8 @@
+name: request-id
+in: path
+description: The verification request id
+required: true
+example: a03ef813-47fc-4b37-a640-e2357a687ac8
+schema:
+  type: string
+  format: string
