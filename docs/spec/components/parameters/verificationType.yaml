@@ -1,0 +1,8 @@
+name: verification-type
+in: path
+description: The verification type name
+required: true
+example: basicZKPAuth
+schema:
+  type: string
+  format: string

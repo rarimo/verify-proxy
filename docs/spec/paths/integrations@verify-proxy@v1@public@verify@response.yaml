@@ -1,0 +1,29 @@
+get:
+  tags:
+    - Verification requests
+  summary: Get callback data
+  description: Returns the callback data that is received from Polygon Wallet by JWT.
+  operationId: verifyCallbackGet
+  parameters:
+    - $ref: '#/components/parameters/authBearerToken'
+    - $ref: '#/components/parameters/requestId'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/JWZ'
+    '204':
+      description: 'No content; Entity exists, but there wasn''t callback yet'
+    '400':
+      description: Bad request
+    '401':
+      description: Unauthorized; Invalid JWT
+    '500':
+      description: Internal error

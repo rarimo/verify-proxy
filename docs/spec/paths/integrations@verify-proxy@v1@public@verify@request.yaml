@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Verification requests
+  summary: Create verification request
+  description: >-
+    It returns the verification_id and JWT. You can use the verification_id for
+    Auth request to the Polygon Wallet and then you can use JWT for retrieving
+    callback from the service.
+  operationId: verifyRequest
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/VerifyID'
+    '400':
+      description: Bad request
+    '409':
+      description: Conflict; Verification ID is already exist
+    '500':
+      description: Internal error
