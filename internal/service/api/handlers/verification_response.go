@@ -7,8 +7,8 @@ import (
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/responses"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/core"
+	"github.com/rarimo/verify-proxy/internal/service/api/responses"
+	"github.com/rarimo/verify-proxy/internal/service/core"
 )
 
 func VerificationResponse(w http.ResponseWriter, r *http.Request) {

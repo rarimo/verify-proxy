@@ -2,11 +2,10 @@ package handlers
 
 import (
 	"context"
+	"gitlab.com/distributed_lab/logan/v3"
 	"net/http"
 
-	"gitlab.com/distributed_lab/logan/v3"
-
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/core"
+	"github.com/rarimo/verify-proxy/internal/service/core"
 )
 
 type ctxKey int

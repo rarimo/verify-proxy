@@ -6,9 +6,9 @@ import (
 	"github.com/go-chi/chi"
 	"gitlab.com/distributed_lab/ape"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/handlers"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/middleware"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/requests"
+	"github.com/rarimo/verify-proxy/internal/service/api/handlers"
+	"github.com/rarimo/verify-proxy/internal/service/api/middleware"
+	"github.com/rarimo/verify-proxy/internal/service/api/requests"
 )
 
 func (s *service) router() chi.Router {

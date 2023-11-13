@@ -6,7 +6,7 @@ import (
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/ape/problems"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/responses"
+	"github.com/rarimo/verify-proxy/internal/service/api/responses"
 )
 
 func VerificationRequest(w http.ResponseWriter, r *http.Request) {

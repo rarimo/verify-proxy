@@ -2,15 +2,14 @@ package api
 
 import (
 	"context"
+	"gitlab.com/distributed_lab/logan/v3"
 	"net"
 
+	"github.com/rarimo/verify-proxy/internal/config"
+	"github.com/rarimo/verify-proxy/internal/service/core"
+	dbcleaner "github.com/rarimo/verify-proxy/internal/service/core/db_cleaner"
 	"gitlab.com/distributed_lab/ape"
 	"gitlab.com/distributed_lab/kit/copus/types"
-	"gitlab.com/distributed_lab/logan/v3"
-
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/config"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/core"
-	dbcleaner "gitlab.com/rarimo/polygonid/verify-proxy/internal/service/core/db_cleaner"
 )
 
 type service struct {

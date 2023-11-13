@@ -11,7 +11,7 @@ import (
 
 	sq "github.com/Masterminds/squirrel"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/data"
+	"github.com/rarimo/verify-proxy/internal/data"
 )
 
 type verifyRequestsQ struct {

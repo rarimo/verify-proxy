@@ -2,17 +2,16 @@ package cli
 
 import (
 	"context"
+	"gitlab.com/distributed_lab/logan/v3"
 	"os"
 	"os/signal"
 	"sync"
 	"syscall"
 
 	"github.com/alecthomas/kingpin"
+	"github.com/rarimo/verify-proxy/internal/config"
+	"github.com/rarimo/verify-proxy/internal/service/api"
 	"gitlab.com/distributed_lab/kit/kv"
-	"gitlab.com/distributed_lab/logan/v3"
-
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/config"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api"
 )
 
 func Run(args []string) bool {

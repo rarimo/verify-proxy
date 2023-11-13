@@ -1,4 +1,4 @@
-module gitlab.com/rarimo/polygonid/verify-proxy
+module github.com/rarimo/verify-proxy
 
 go 1.19
 
@@ -17,6 +17,7 @@ require (
 	gitlab.com/distributed_lab/figure v2.1.0+incompatible
 	gitlab.com/distributed_lab/kit v1.11.2
 	gitlab.com/distributed_lab/logan v3.8.1+incompatible
+	gitlab.com/distributed_lab/running v0.0.0-20200706131153-4af0e83eb96c
 )
 
 require (
@@ -55,7 +56,6 @@ require (
 	github.com/spf13/viper v1.3.2 // indirect
 	github.com/stretchr/testify v1.8.4 // indirect
 	gitlab.com/distributed_lab/lorem v0.2.0 // indirect
-	gitlab.com/distributed_lab/running v0.0.0-20200706131153-4af0e83eb96c // indirect
 	golang.org/x/crypto v0.9.0 // indirect
 	golang.org/x/sys v0.10.0 // indirect
 	golang.org/x/text v0.9.0 // indirect

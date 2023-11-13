@@ -8,9 +8,9 @@ import (
 	"gitlab.com/distributed_lab/logan/v3"
 	"gitlab.com/distributed_lab/running"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/config"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/data"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/data/pg"
+	"github.com/rarimo/verify-proxy/internal/config"
+	"github.com/rarimo/verify-proxy/internal/data"
+	"github.com/rarimo/verify-proxy/internal/data/pg"
 )
 
 type Cleaner interface {

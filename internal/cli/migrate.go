@@ -4,8 +4,8 @@ import (
 	migrate "github.com/rubenv/sql-migrate"
 	"gitlab.com/distributed_lab/logan/v3/errors"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/assets"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/config"
+	"github.com/rarimo/verify-proxy/internal/assets"
+	"github.com/rarimo/verify-proxy/internal/config"
 )
 
 var migrations = &migrate.EmbedFileSystemMigrationSource{

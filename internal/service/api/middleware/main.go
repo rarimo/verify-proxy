@@ -3,17 +3,17 @@ package middleware
 import (
 	"context"
 	"encoding/json"
+	"github.com/golang-jwt/jwt/v4"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/fatih/structs"
-	"github.com/golang-jwt/jwt/v4"
 	"github.com/pkg/errors"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/config"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/handlers"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/core"
+	"github.com/rarimo/verify-proxy/internal/config"
+	"github.com/rarimo/verify-proxy/internal/service/api/handlers"
+	"github.com/rarimo/verify-proxy/internal/service/core"
 )
 
 func AuthMiddleware(cfg *config.JWT) func(http.Handler) http.Handler {

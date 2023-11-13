@@ -7,7 +7,7 @@ The service is designed to receive callbacks from PolygonID Wallet application. 
 ## Install
 
   ```
-  git clone gitlab.com/rarimo/polygonid/verify-proxy
+  git clone github.com/rarimo/verify-proxy
   cd verify-proxy
   go build main.go
   export KV_VIPER_FILE=./config.yaml
@@ -39,8 +39,8 @@ Make sure that docker installed.
 use `docker run ` with `-p 8080:80` to expose port 80 to 8080
 
   ```
-  docker build -t gitlab.com/rarimo/polygonid/verify-proxy .
-  docker run -e KV_VIPER_FILE=/config.yaml gitlab.com/rarimo/polygonid/verify-proxy
+  docker build -t github.com/rarimo/verify-proxy .
+  docker run -e KV_VIPER_FILE=/config.yaml github.com/rarimo/verify-proxy
   ```
 
 ## Running from Source

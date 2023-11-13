@@ -1,6 +1,6 @@
 package responses
 
-import "gitlab.com/rarimo/polygonid/verify-proxy/resources"
+import "github.com/rarimo/verify-proxy/resources"
 
 func NewJWZ(jwz string) *resources.JwzResponse {
 	return &resources.JwzResponse{

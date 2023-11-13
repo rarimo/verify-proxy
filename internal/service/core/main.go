@@ -5,10 +5,10 @@ import (
 
 	"github.com/google/uuid"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/config"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/data"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/data/pg"
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/service/api/requests"
+	"github.com/rarimo/verify-proxy/internal/config"
+	"github.com/rarimo/verify-proxy/internal/data"
+	"github.com/rarimo/verify-proxy/internal/data/pg"
+	"github.com/rarimo/verify-proxy/internal/service/api/requests"
 )
 
 type VerifyProxy interface {

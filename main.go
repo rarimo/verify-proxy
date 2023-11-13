@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/cli"
+	"github.com/rarimo/verify-proxy/internal/cli"
 )
 
 func main() {

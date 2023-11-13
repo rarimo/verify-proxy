@@ -3,7 +3,7 @@ package pg
 import (
 	"gitlab.com/distributed_lab/kit/pgdb"
 
-	"gitlab.com/rarimo/polygonid/verify-proxy/internal/data"
+	"github.com/rarimo/verify-proxy/internal/data"
 )
 
 const (

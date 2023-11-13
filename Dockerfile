@@ -1,9 +1,9 @@
 FROM golang:1.19 as buildbase
 
-WORKDIR /go/src/gitlab.com/rarimo/identity/verify-proxy
+WORKDIR /go/src/github.com/rarimo/verify-proxy
 COPY . .
 
-RUN CGO_ENABLED=1 GOOS=linux go build -o /usr/local/bin/verify-proxy /go/src/gitlab.com/rarimo/identity/verify-proxy
+RUN CGO_ENABLED=1 GOOS=linux go build -o /usr/local/bin/verify-proxy /go/src/github.com/rarimo/verify-proxy
 
 FROM alpine:3.18.2
 

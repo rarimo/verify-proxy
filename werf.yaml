@@ -4,10 +4,10 @@ project: "backend"
 image: builder # Build image name.
 from: golang:1.19 # Base image.
 docker:
-  WORKDIR: /go/src/gitlab.com/rarimo/rarimoid/verify-proxy
+  WORKDIR: /go/src/github.com/rarimo/verify-proxy
 git: # Section with directives for adding source files from a git repository.
   - add: / # The source path in the repository.
-    to: /go/src/gitlab.com/rarimo/rarimoid/verify-proxy # The destination path in the image.
+    to: /go/src/github.com/rarimo/verify-proxy # The destination path in the image.
     stageDependencies: # Configuring rebuild triggers when specific files in the repository change.
       install:
         - go.mod
@@ -16,8 +16,8 @@ git: # Section with directives for adding source files from a git repository.
         - "**/*"
 shell: # Shell build instructions.
   setup: # For the Setup stage.
-    - cd /go/src/gitlab.com/rarimo/rarimoid/verify-proxy
-    - go build -o /usr/local/bin/verify-proxy /go/src/gitlab.com/rarimo/rarimoid/verify-proxy
+    - cd /go/src/github.com/rarimo/verify-proxy
+    - go build -o /usr/local/bin/verify-proxy /go/src/github.com/rarimo/verify-proxy
 
 ---
 image: service # The name of the built image.
