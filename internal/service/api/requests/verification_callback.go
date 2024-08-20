@@ -51,7 +51,8 @@ func (req *verificationCallbackRequest) validate() error {
 			req.VerificationID, validation.Required, validation.By(MustBeValidUUID),
 		),
 		"body": validation.Validate(
-			req.JWZToken, validation.Required, validation.By(MustBeValidJWZToken),
+			//req.JWZToken, validation.Required, validation.By(MustBeValidJWZToken),
+			req.JWZToken, validation.Required,
 		),
 	}.Filter()
 }

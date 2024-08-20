@@ -3,13 +3,13 @@ log:
   disable_sentry: true
 
 db:
-  url: db_url
+  url: "postgres://root:root@localhost:5432/blobs?sslmode=disable"
 
 listener:
   addr: :8000
 
 jwt:
-  secret_key: <JWT_SECRET_KEY_HEX>
+  secret_key: "7365637265742d6b6579"
   expiration_time: 24h
 
 db_cleaner:

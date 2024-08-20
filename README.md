@@ -2,7 +2,7 @@
 
 ## Description
 
-The service is designed to receive callbacks from PolygonID Wallet application. The callback contains a ZKP that satisfies some user&#39;s request. The front-end applicatiin can easily retrieve the user&#39;s proof by proof id.
+The service is designed to receive callbacks from PolygonID Wallet application. The callback contains a ZKP that satisfies some user&#39;s request. The front-end application can easily retrieve the user&#39;s proof by proof id.
 
 ## Install
 
