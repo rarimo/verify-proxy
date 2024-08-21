@@ -1,0 +1,17 @@
+allOf:
+  - $ref: '#/components/schemas/CallbackDataKey'
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - callback_data
+        properties:
+          callback_data:
+            type: string
+            format: string
+            description: Data from wallet callback
+            example: >-
+              '{"Lorem": "ipsum"}'

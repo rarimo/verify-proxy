@@ -3,8 +3,8 @@
 GENERATOR_IMAGE=registry.gitlab.com/tokend/openapi-go-generator:69f004b58152c83f007b593cc13e94b81d7200da
 
 
-GENERATED="${GOPATH}/src/github.com/rarimo/verify-proxy/resources"
-OPENAPI_DIR="${GOPATH}/src/github.com/rarimo/verify-proxy/docs/web_deploy"
+GENERATED="/Users/lukachisama/Documents/RARIMO/MOKALAKE/verify-proxy/resources"
+OPENAPI_DIR="/Users/lukachisama/Documents/RARIMO/MOKALAKE/verify-proxy/docs/web_deploy"
 PACKAGE_NAME=resources
 
 function printHelp {

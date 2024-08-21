@@ -18,7 +18,7 @@ get:
               - data
             properties:
               data:
-                $ref: '#/components/schemas/JWZ'
+                $ref: '#/components/schemas/CallbackData'
     '204':
       description: 'No content; Entity exists, but there wasn''t callback yet'
     '400':

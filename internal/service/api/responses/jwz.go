@@ -2,14 +2,14 @@ package responses
 
 import "github.com/rarimo/verify-proxy/resources"
 
-func NewJWZ(jwz string) *resources.JwzResponse {
-	return &resources.JwzResponse{
-		Data: resources.Jwz{
+func NewCallbackData(callback_data string) *resources.CallbackDataResponse {
+	return &resources.CallbackDataResponse{
+		Data: resources.CallbackData{
 			Key: resources.Key{
-				Type: resources.JWZ,
+				Type: resources.CALLBACK_DATA,
 			},
-			Attributes: resources.JwzAttributes{
-				Jwz: jwz,
+			Attributes: resources.CallbackDataAttributes{
+				CallbackData: callback_data,
 			},
 		},
 	}

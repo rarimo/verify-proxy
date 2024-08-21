@@ -8,6 +8,6 @@ type ResourceType string
 
 // List of ResourceType
 const (
-	JWZ             ResourceType = "jwz"
+	CALLBACK_DATA   ResourceType = "callback_data"
 	VERIFICATION_ID ResourceType = "verification_id"
 )

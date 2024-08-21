@@ -28,5 +28,5 @@ func VerificationResponse(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	ape.Render(w, responses.NewJWZ(jwz))
+	ape.Render(w, responses.NewCallbackData(jwz))
 }
