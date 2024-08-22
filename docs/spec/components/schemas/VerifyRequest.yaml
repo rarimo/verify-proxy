@@ -1,0 +1,18 @@
+allOf:
+  - $ref: '#/components/schemas/VerifyIDKey'
+  - type: object
+    required:
+      - attributes
+    properties:
+      attributes:
+        type: object
+        required:
+          - value
+        properties:
+          request_data:
+            description: arbitrary text
+            type: string
+            example: '{ "key": "value" }'
+    headers:
+      Authorization:
+        type: string

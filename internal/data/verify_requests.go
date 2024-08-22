@@ -22,6 +22,7 @@ type VerifyRequestsQ interface {
 type VerifyRequest struct {
 	ID           uuid.UUID          `db:"id"            structs:"id"`
 	Status       VerificationStatus `db:"status"        structs:"status"`
+	RequestData  []byte             `db:"request_data"  structs:"request_data"`
 	CallbackData []byte             `db:"callback_data" structs:"callback_data"`
 	CreatedAt    time.Time          `db:"created_at"    structs:"created_at"`
 	UpdatedAt    time.Time          `db:"updated_at"    structs:"updated_at"`

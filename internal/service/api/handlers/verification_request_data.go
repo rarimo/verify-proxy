@@ -9,13 +9,13 @@ import (
 	"github.com/rarimo/verify-proxy/internal/service/api/responses"
 )
 
-func VerificationRequest(w http.ResponseWriter, r *http.Request) {
-	requestID, jwt, err := VerifyProxy(r).NewVerificationRequest(r)
+func VerificationRequestData(w http.ResponseWriter, r *http.Request) {
+	requestData, err := VerifyProxy(r).GetVerificationRequest(r)
 	if err != nil {
 		Log(r).WithError(err).Debug("Internal error")
 		ape.RenderErr(w, problems.InternalError())
 		return
 	}
 
-	ape.Render(w, responses.NewVerificationID(requestID, jwt))
+	ape.Render(w, responses.NewVerificationData(&requestData))
 }

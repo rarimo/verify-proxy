@@ -1,6 +1,7 @@
 package core
 
 import (
+	"net/http"
 	"time"
 
 	"github.com/google/uuid"
@@ -12,7 +13,8 @@ import (
 )
 
 type VerifyProxy interface {
-	NewVerificationRequest() (*uuid.UUID, string, error)
+	NewVerificationRequest(r *http.Request) (*uuid.UUID, string, error)
+	GetVerificationRequest(r *http.Request) (string, error)
 	VerifyCallback(*requests.VerificationCallbackRequest) error
 	GetJWZToken(uuid.UUID) (string, error)
 }

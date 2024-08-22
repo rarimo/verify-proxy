@@ -1,0 +1,27 @@
+get:
+  tags:
+    - Verification requests
+  summary: Get request data
+  description: >-
+    Update request with arbitrary data and new status
+  operationId: verifyCallback
+  parameters:
+    - $ref: '#/components/parameters/requestId'
+  responses:
+    '200':
+      description: Success
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - data
+            properties:
+              data:
+                $ref: '#/components/schemas/VerifyRequest'
+    '400':
+      description: Bad request
+    '409':
+      description: 'Conflict, request already processed'
+    '500':
+      description: Internal error

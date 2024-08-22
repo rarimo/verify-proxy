@@ -1,6 +1,10 @@
 package core
 
 import (
+	"encoding/json"
+	"github.com/go-chi/chi"
+	"github.com/rarimo/verify-proxy/resources"
+	"net/http"
 	"time"
 
 	"github.com/google/uuid"
@@ -10,12 +14,28 @@ import (
 	"github.com/rarimo/verify-proxy/internal/service/api/requests"
 )
 
-func (v *verifyProxy) NewVerificationRequest() (*uuid.UUID, string, error) {
+func (v *verifyProxy) NewVerificationRequest(r *http.Request) (*uuid.UUID, string, error) {
+	request := struct {
+		Data resources.VerifyRequest `json:"data"`
+	}{}
+
+	if err := json.NewDecoder(r.Body).Decode(&request); err != nil {
+		return nil, "", errors.Wrap(err, "failed to unmarshal")
+	}
+
+	// json parse request.Data.Attributes.RequestData arbitrary data
+	var requestData map[string]interface{}
+
+	if err := json.Unmarshal([]byte(*request.Data.Attributes.RequestData), &requestData); err != nil {
+		return nil, "", errors.Wrap(err, "failed to unmarshal")
+	}
+
 	requestID := uuid.New()
 	err := v.db.VerifyRequestsQ().Insert(&data.VerifyRequest{
-		ID:        requestID,
-		Status:    data.VerificationStatusInitialized,
-		CreatedAt: time.Now().UTC(),
+		ID:          requestID,
+		Status:      data.VerificationStatusInitialized,
+		CreatedAt:   time.Now().UTC(),
+		RequestData: []byte(*request.Data.Attributes.RequestData),
 	})
 	if err != nil {
 		return nil, "", errors.Wrap(err, "failed to insert new verify request")
@@ -30,6 +50,23 @@ func (v *verifyProxy) NewVerificationRequest() (*uuid.UUID, string, error) {
 	}
 
 	return &requestID, jwt, nil
+}
+
+func (v *verifyProxy) GetVerificationRequest(r *http.Request) (string, error) {
+	requestID, err := uuid.Parse(chi.URLParam(r, requests.RequestIDPathParam))
+	if err != nil {
+		return "", errors.Wrap(err, "failed to parse request_id")
+	}
+
+	verifyRequest, err := v.db.VerifyRequestsQ().WhereID(requestID).Get()
+	if err != nil {
+		return "", errors.Wrap(err, "failed to get verify request")
+	}
+	if verifyRequest == nil {
+		return "", ErrVerifyRequestNotFound
+	}
+
+	return string(verifyRequest.RequestData), nil
 }
 
 func (v *verifyProxy) VerifyCallback(request *requests.VerificationCallbackRequest) error {

@@ -7,6 +7,27 @@ get:
     Auth request to the Polygon Wallet and then you can use JWT for retrieving
     callback from the service.
   operationId: verifyRequest
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - data
+          properties:
+            data:
+              type: object
+              required: true
+              $ref: '#/components/schemas/VerifyRequest'
+      application/xml:
+        schema:
+          type: object
+          properties:
+            data:
+              type: object
+              required: true
+              $ref: '#/components/schemas/VerifyRequest'
+    required: true
   responses:
     '200':
       description: Success

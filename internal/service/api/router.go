@@ -41,7 +41,11 @@ func (s *service) router() chi.Router {
 		r.Route("/v1", func(r chi.Router) {
 			r.Route("/public", func(r chi.Router) {
 				r.Route("/verify", func(r chi.Router) {
-					r.Get("/request", handlers.VerificationRequest)
+					r.Post("/request", handlers.VerificationRequest)
+					r.Get(
+						fmt.Sprintf("/request/{%s}", requests.RequestIDPathParam),
+						handlers.VerificationRequestData,
+					)
 					r.Post(
 						fmt.Sprintf("/callback/{%s}", requests.RequestIDPathParam),
 						handlers.VerificationCallback,

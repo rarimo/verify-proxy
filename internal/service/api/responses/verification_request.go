@@ -21,3 +21,16 @@ func NewVerificationID(requestID *uuid.UUID, jwt string) *resources.VerifyIdResp
 		},
 	}
 }
+
+func NewVerificationData(requestData *string) *resources.VerifyRequestResponse {
+	return &resources.VerifyRequestResponse{
+		Data: resources.VerifyRequest{
+			Key: resources.Key{
+				Type: resources.VERIFICATION_ID,
+			},
+			Attributes: resources.VerifyRequestAttributes{
+				RequestData: requestData,
+			},
+		},
+	}
+}
